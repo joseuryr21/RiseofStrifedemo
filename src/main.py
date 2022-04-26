@@ -5,7 +5,7 @@ from view.renderGame import renderGame
 
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
-cntLoopnum = 0
+cntLoopNum = 0
 
 def checkQuit():
     for event in pygame.event.get():
@@ -20,6 +20,6 @@ def checkQuit():
 while isRunning:
     pygame.time.delay(50)
     isRunning = checkQuit()
-    if cntLoopnum % 2 == 0:
+    if cntLoopNum % 2 == 0:
         renderGame(screen)
-    cntLoopnum += 1
+    cntLoopNum += 1
