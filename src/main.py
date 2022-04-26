@@ -15,11 +15,24 @@ def checkWindowQuit():
     isRunning = True
     return isRunning
 
+def checkButtonQuit():
+    mousePosition = pygame.mouse.get_pos()
+    while mousePosition[0] > 1839 and mousePosition[1] < 81: #exit button location
+        pygame.time.wait(10)
+        pygame.event.get()
+        mousePressed = pygame.mouse.get_pressed()
+        mousePosition = pygame.mouse.get_pos()
+        if mousePressed[0] == True:
+            isRunning = False
+            return isRunning
+    isRunning = True
+    return isRunning
 
 
 while isRunning:
     pygame.time.delay(50)
     isRunning = checkWindowQuit()
+    isRunning = checkButtonQuit()
     if cntLoopNum % 2 == 0:
         renderGame(screen)
     cntLoopNum += 1
