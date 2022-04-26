@@ -7,7 +7,7 @@ screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
 cntLoopNum = 0
 
-def checkQuit():
+def checkWindowQuit():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
@@ -19,7 +19,7 @@ def checkQuit():
 
 while isRunning:
     pygame.time.delay(50)
-    isRunning = checkQuit()
+    isRunning = checkWindowQuit()
     if cntLoopNum % 2 == 0:
         renderGame(screen)
     cntLoopNum += 1
