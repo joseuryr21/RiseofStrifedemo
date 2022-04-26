@@ -3,7 +3,7 @@
 import pygame
 from view.renderGame import renderGame
 
-screen = pygame.display.set_mode([800, 800])
+screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
 cntLoopnum = 1
 
