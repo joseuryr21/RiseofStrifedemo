@@ -43,4 +43,3 @@ def renderGame(screen):
     renderGround(screen, currentDirectory)
     renderMenus(screen, currentDirectory)
     pygame.display.flip()
-    screen.fill((255, 255, 255)) #white
