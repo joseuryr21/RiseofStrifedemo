@@ -17,15 +17,15 @@ def renderGround(screen, currentDirectory):
     screen.blit(groundSprite, (0, 384)) #384 is below sky
 
 def renderMenuFrame(screen, currentDirectory):
-    menuFrameSprite = pygame.image.load(currentDirectory + '/images/menu/menuframe/MenuFrame1.png')
+    menuFrameSprite = pygame.image.load(currentDirectory + '/images/menu/menuFrame/MenuFrame1.png')
     screen.blit(menuFrameSprite, (0, 792)) #792 is below ground
 
 def renderButtons(screen, currentDirectory):
-    attackSprite = pygame.image.load(currentDirectory + '/images/menu/graymenu/mainbuttons/Attack1.png')
-    defendSprite = pygame.image.load(currentDirectory + '/images/menu/graymenu/mainbuttons/Defend1.png')
-    specialSprite = pygame.image.load(currentDirectory + '/images/menu/graymenu/mainbuttons/Special1.png')
-    relocateSprite = pygame.image.load(currentDirectory + '/images/menu/graymenu/mainbuttons/Relocate2.png')
-    backSprite = pygame.image.load(currentDirectory + '/images/menu/graymenu/mainbuttons/Back1.png')
+    attackSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Attack1.png')
+    defendSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Defend1.png')
+    specialSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Special1.png')
+    relocateSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Relocate2.png')
+    backSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Back1.png')
     exitSprite = pygame.image.load(currentDirectory + '/images/menu/Exit1.png')
     screen.blit(attackSprite, (28, 824))
     screen.blit(defendSprite, (428, 824))
