@@ -34,9 +34,15 @@ def renderButtons(screen, currentDirectory):
     screen.blit(backSprite, (828, 824))
     screen.blit(exitSprite, (1840, 0))
 
+
+def renderPortaits(screen, currentDirectory):
+    friendly1PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait1.png')
+    screen.blit(friendly1PortraitSprite, (980, 808))
+
 def renderMenus(screen, currentDirectory):
     renderMenuFrame(screen, currentDirectory)
     renderButtons(screen, currentDirectory)
+    renderPortaits(screen, currentDirectory)
 
 def renderGame(screen):
     currentDirectory = getDirectory()
