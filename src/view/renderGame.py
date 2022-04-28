@@ -174,7 +174,17 @@ def renderBars(screen, currentDirectory):
 
 def renderPortaits(screen, currentDirectory):
     friendly1PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait1.png')
+    friendly2PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait1.png')
+    friendly3PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait1.png')
+    enemy1PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/enemyPortrait/portrait1.png')
+    enemy2PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/enemyPortrait/portrait1.png')
+    enemy3PortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/enemyPortrait/portrait1.png')
     screen.blit(friendly1PortraitSprite, (980, 808))
+    screen.blit(friendly2PortraitSprite, (980, 896))
+    screen.blit(friendly3PortraitSprite, (980, 984))
+    screen.blit(enemy1PortraitSprite, (1828, 808))
+    screen.blit(enemy2PortraitSprite, (1828, 896))
+    screen.blit(enemy3PortraitSprite, (1828, 984))
 
 def renderMenus(screen, currentDirectory):
     renderMenuFrame(screen, currentDirectory)
