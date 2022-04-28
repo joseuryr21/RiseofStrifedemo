@@ -1,7 +1,6 @@
 #draws images and such
 import pygame
 import os
-from model.gamedata import takeHit
 
 currentDirectory = str(os.getcwd())
 spritesheetMenuBars = {

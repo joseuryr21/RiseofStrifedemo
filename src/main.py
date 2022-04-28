@@ -2,6 +2,7 @@
 
 import pygame
 from view.renderGame import renderGame
+#for later: from model.gamedata import test
 
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
