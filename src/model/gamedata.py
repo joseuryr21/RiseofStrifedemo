@@ -28,9 +28,9 @@ statsCharacter = {
     {"debuff2": 'none'}
   ],
   "friendly3": [
-    {"health": 50},
-    {"mana": 20},
-    {"stamina": 2},
+    {"health": 100},
+    {"mana": 50},
+    {"stamina": 3},
     {"attack": 20},
     {"magic": 20},
     {"defense": 30},
@@ -68,9 +68,9 @@ statsCharacter = {
     {"debuff2": 'none'}
   ],
   "enemy3": [
-    {"health": 2},
-    {"mana": 78},
-    {"stamina": 2},
+    {"health": 100},
+    {"mana": 50},
+    {"stamina": 3},
     {"attack": 20},
     {"magic": 20},
     {"defense": 30},
