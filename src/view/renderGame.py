@@ -34,25 +34,28 @@ def renderButtons(screen, currentDirectory):
     screen.blit(backSprite, (828, 824))
     screen.blit(exitSprite, (1840, 0))
 
+def createBarSpritesheet(currentDirectory, index, characterType, statType):
+    return (currentDirectory) + '/images/menu/blueMenu/' + characterType + statType + '/' + statType.lower() + str(index) + '.png'
+
 def renderBars(screen, currentDirectory):
-    friendly1HealthBarSprite = pygame.image.load(spritesheetMenuBars['friendlyHealth'][int(statsCharacter['friendly1'][0]['health']/2)][str(int(statsCharacter['friendly1'][0]['health']/2))])
-    friendly1ManaBarSprite = pygame.image.load(spritesheetMenuBars['friendlyMana'][int(statsCharacter['friendly1'][1]['mana']/2)][str(int(statsCharacter['friendly1'][1]['mana']/2))])
-    friendly1StaminaBarSprite = pygame.image.load(spritesheetMenuBars['friendlyStamina'][statsCharacter['friendly1'][2]['stamina']][str(statsCharacter['friendly1'][2]['stamina'])])
-    friendly2HealthBarSprite = pygame.image.load(spritesheetMenuBars['friendlyHealth'][int(statsCharacter['friendly2'][0]['health']/2)][str(int(statsCharacter['friendly2'][0]['health']/2))])
-    friendly2ManaBarSprite = pygame.image.load(spritesheetMenuBars['friendlyMana'][int(statsCharacter['friendly2'][1]['mana']/2)][str(int(statsCharacter['friendly2'][1]['mana']/2))])
-    friendly2StaminaBarSprite = pygame.image.load(spritesheetMenuBars['friendlyStamina'][statsCharacter['friendly2'][2]['stamina']][str(statsCharacter['friendly2'][2]['stamina'])])
-    friendly3HealthBarSprite = pygame.image.load(spritesheetMenuBars['friendlyHealth'][int(statsCharacter['friendly3'][0]['health']/2)][str(int(statsCharacter['friendly3'][0]['health']/2))])
-    friendly3ManaBarSprite = pygame.image.load(spritesheetMenuBars['friendlyMana'][int(statsCharacter['friendly3'][1]['mana']/2)][str(int(statsCharacter['friendly3'][1]['mana']/2))])
-    friendly3StaminaBarSprite = pygame.image.load(spritesheetMenuBars['friendlyStamina'][statsCharacter['friendly3'][2]['stamina']][str(statsCharacter['friendly3'][2]['stamina'])])
-    enemy1HealthBarSprite = pygame.image.load(spritesheetMenuBars['enemyHealth'][int(statsCharacter['enemy1'][0]['health']/2)][str(int(statsCharacter['enemy1'][0]['health']/2))])
-    enemy1ManaBarSprite = pygame.image.load(spritesheetMenuBars['enemyMana'][int(statsCharacter['enemy1'][1]['mana']/2)][str(int(statsCharacter['enemy1'][1]['mana']/2))])
-    enemy1StaminaBarSprite = pygame.image.load(spritesheetMenuBars['enemyStamina'][statsCharacter['enemy1'][2]['stamina']][str(statsCharacter['enemy1'][2]['stamina'])])
-    enemy2HealthBarSprite = pygame.image.load(spritesheetMenuBars['enemyHealth'][int(statsCharacter['enemy2'][0]['health']/2)][str(int(statsCharacter['enemy2'][0]['health']/2))])
-    enemy2ManaBarSprite = pygame.image.load(spritesheetMenuBars['enemyMana'][int(statsCharacter['enemy2'][1]['mana']/2)][str(int(statsCharacter['enemy2'][1]['mana']/2))])
-    enemy2StaminaBarSprite = pygame.image.load(spritesheetMenuBars['enemyStamina'][statsCharacter['enemy2'][2]['stamina']][str(statsCharacter['enemy2'][2]['stamina'])])
-    enemy3HealthBarSprite = pygame.image.load(spritesheetMenuBars['enemyHealth'][int(statsCharacter['enemy3'][0]['health']/2)][str(int(statsCharacter['enemy3'][0]['health']/2))])
-    enemy3ManaBarSprite = pygame.image.load(spritesheetMenuBars['enemyMana'][int(statsCharacter['enemy3'][1]['mana']/2)][str(int(statsCharacter['enemy3'][1]['mana']/2))])
-    enemy3StaminaBarSprite = pygame.image.load(spritesheetMenuBars['enemyStamina'][statsCharacter['enemy3'][2]['stamina']][str(statsCharacter['enemy3'][2]['stamina'])])
+    friendly1HealthBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly1'][0]['health']/2), 'friendly', 'Health'))
+    friendly1ManaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly1'][1]['mana']/2), 'friendly', 'Mana'))
+    friendly1StaminaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly1'][2]['stamina']), 'friendly', 'Stamina'))
+    friendly2HealthBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly2'][0]['health']/2), 'friendly', 'Health'))
+    friendly2ManaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly2'][1]['mana']/2), 'friendly', 'Mana'))
+    friendly2StaminaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly2'][2]['stamina']), 'friendly', 'Stamina'))
+    friendly3HealthBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly3'][0]['health']/2), 'friendly', 'Health'))
+    friendly3ManaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly3'][1]['mana']/2), 'friendly', 'Mana'))
+    friendly3StaminaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['friendly3'][2]['stamina']), 'friendly', 'Stamina'))
+    enemy1HealthBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy1'][0]['health']/2), 'enemy', 'Health'))
+    enemy1ManaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy1'][1]['mana']/2), 'enemy', 'Mana'))
+    enemy1StaminaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy1'][2]['stamina']), 'enemy', 'Stamina'))
+    enemy2HealthBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy2'][0]['health']/2), 'enemy', 'Health'))
+    enemy2ManaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy2'][1]['mana']/2), 'enemy', 'Mana'))
+    enemy2StaminaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy2'][2]['stamina']), 'enemy', 'Stamina'))
+    enemy3HealthBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy3'][0]['health']/2), 'enemy', 'Health'))
+    enemy3ManaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy3'][1]['mana']/2), 'enemy', 'Mana'))
+    enemy3StaminaBarSprite = pygame.image.load(createBarSpritesheet(currentDirectory, int(statsCharacter['enemy3'][2]['stamina']), 'enemy', 'Stamina'))
     screen.blit(friendly1HealthBarSprite, (1060, 812))
     screen.blit(friendly1ManaBarSprite, (1060, 836))
     screen.blit(friendly1StaminaBarSprite, (1060, 860))
@@ -100,6 +103,3 @@ def renderGame(screen):
     renderGround(screen, currentDirectory)
     renderMenus(screen, currentDirectory)
     pygame.display.flip()
-
-#placed low to prevent circular dependent imports
-from view.spriteSheets import spritesheetMenuBars
