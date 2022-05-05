@@ -94,6 +94,8 @@ statsCharacter = {
     {"spriteNum": 1},
     {"currentX": 1620},
     {"currentY": 300},
+    {"previousX": 0},
+    {"previousY": 0}
   ],
   "enemy3": [
     {"health": 100}, #0
@@ -111,6 +113,8 @@ statsCharacter = {
     {"spriteNum": 1}, #12
     {"currentX": 1820}, #13
     {"currentY": 100}, #14
+    {"previousX": 0}, #15
+    {"previousY": 0} #16
   ]
 
 }
