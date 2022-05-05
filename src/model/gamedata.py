@@ -89,5 +89,3 @@ statsCharacter = {
 
 }
 
-def takeHit():
-    print("take hit")
