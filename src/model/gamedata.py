@@ -13,6 +13,7 @@ statsCharacter = {
     {"buff2": 'none'},
     {"debuff1": 'none'},
     {"debuff2": 'none'}
+    {"action": 'none'}
   ],
   "friendly2": [
     {"health": 100},
@@ -26,6 +27,7 @@ statsCharacter = {
     {"buff2": 'none'},
     {"debuff1": 'none'},
     {"debuff2": 'none'}
+    {"action": 'none'}
   ],
   "friendly3": [
     {"health": 100},
@@ -39,6 +41,7 @@ statsCharacter = {
     {"buff2": 'none'},
     {"debuff1": 'none'},
     {"debuff2": 'none'}
+    {"action": 'none'}
   ],
 
   "enemy1": [
@@ -53,6 +56,7 @@ statsCharacter = {
     {"buff2": 'none'},
     {"debuff1": 'none'},
     {"debuff2": 'none'}
+    {"action": 'none'}
   ],
   "enemy2": [
     {"health": 100},
@@ -66,6 +70,7 @@ statsCharacter = {
     {"buff2": 'none'},
     {"debuff1": 'none'},
     {"debuff2": 'none'}
+    {"action": 'none'}
   ],
   "enemy3": [
     {"health": 100},
@@ -79,6 +84,7 @@ statsCharacter = {
     {"buff2": 'none'},
     {"debuff1": 'none'},
     {"debuff2": 'none'}
+    {"action": 'none'} #11
   ]
 
 }
