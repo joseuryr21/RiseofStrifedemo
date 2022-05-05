@@ -88,3 +88,19 @@ statsCharacter = {
   ]
 
 }
+
+def attackStab(user, target):
+    if statsCharacter[target][11]['action'] == 'none':
+        damage = statsCharacter[user][3]['attack']
+    else:
+        damage = statsCharacter[user][3]['attack'] - statsCharacter[target][5]['defense']
+    if damage > 0:
+        if statsCharacter[target][9]['debuff1'] == 'fragile' or statsCharacter[target][10]['debuff2'] == 'fragile':
+            damage *= 1.5
+        statsCharacter[target][0]['health'] -= damage
+        if statsCharacter[target][9]['debuff1'] == 'none' or statsCharacter[target][9]['debuff1'] == "fragile":
+            statsCharacter[target][9]['debuff1'] = 'fragile'
+        else:
+            statsCharacter[target][10]['debuff2'] = 'fragile'
+    if statsCharacter[target][0]['health'] < 0:
+        statsCharacter[target][0]['health'] = 0
