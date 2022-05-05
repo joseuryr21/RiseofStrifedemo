@@ -2,6 +2,7 @@
 
 import pygame
 from view.renderGame import renderGame
+from model.gamedata import attackStab
 
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
@@ -35,4 +36,6 @@ while isRunning:
     isRunning = checkButtonQuit()
     if cntLoopNum % 2 == 0:
         renderGame(screen)
+    attackStab('friendly1','enemy1')#test
+    attackStab('enemy2','friendly3')#test
     cntLoopNum += 1
