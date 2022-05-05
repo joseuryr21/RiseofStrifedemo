@@ -155,6 +155,24 @@ def renderPortaits(screen, currentDirectory):
     screen.blit(enemy2PortraitSprite, (1828, 896))
     screen.blit(enemy3PortraitSprite, (1828, 984))
 
+def renderCharacters(screen, currentDirectory):
+    for i in range(1, 4):
+        if statsCharacter['friendly' + str(i)][11]['action'] == 'none':
+            friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/friendlyIdle/idle' + str(statsCharacter['friendly' + str(i)][12]['spriteNum']) + '.png')
+            screen.blit(friendly1CharacterSprite, (statsCharacter['friendly' + str(i)][13]['currentX'], statsCharacter['friendly' + str(i)][14]['currentY']))
+            if statsCharacter['friendly' + str(i)][12]['spriteNum'] == 5:
+                statsCharacter['friendly' + str(i)][12]['spriteNum'] = 1
+            else:
+                statsCharacter['friendly' + str(i)][12]['spriteNum'] += 1
+    for i in range(1, 4):
+        if statsCharacter['enemy' + str(i)][11]['action'] == 'none':
+            friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/enemyIdle/idle' + str(statsCharacter['enemy' + str(i)][12]['spriteNum']) + '.png')
+            screen.blit(friendly1CharacterSprite, (statsCharacter['enemy' + str(i)][13]['currentX'], statsCharacter['enemy' + str(i)][14]['currentY']))
+            if statsCharacter['enemy' + str(i)][12]['spriteNum'] == 5:
+                statsCharacter['enemy' + str(i)][12]['spriteNum'] = 1
+            else:
+                statsCharacter['enemy' + str(i)][12]['spriteNum'] += 1
+
 def renderMenus(screen, currentDirectory):
     renderMenuFrame(screen, currentDirectory)
     renderButtons(screen, currentDirectory)
@@ -169,4 +187,5 @@ def renderGame(screen):
     renderGround(screen, currentDirectory)
     renderMenus(screen, currentDirectory)
     renderTiles(screen, currentDirectory)
+    renderCharacters(screen, currentDirectory)
     pygame.display.flip()
