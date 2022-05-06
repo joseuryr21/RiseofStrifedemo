@@ -2,7 +2,7 @@
 
 import pygame
 from view.renderGame import renderGame
-from model.gamedata import attackStab
+from model.gamedata import attackStab, relocateMove
 
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
@@ -38,4 +38,5 @@ while isRunning:
     renderGame(screen)
     attackStab('friendly1','enemy1')#test
     attackStab('enemy2','friendly3')#test
+    relocateMove('friendly1', 8)
     cntLoopNum += 1

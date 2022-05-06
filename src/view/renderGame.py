@@ -160,7 +160,7 @@ def renderCharacters(screen, currentDirectory):
     for i in range(1, 4):
         if statsCharacter['friendly' + str(i)][11]['action'] == 'none':
             friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/friendlyIdle/idle' + str(statsCharacter['friendly' + str(i)][12]['spriteNum']) + '.png')
-            screen.blit(friendly1CharacterSprite, (statsCharacter['friendly' + str(i)][13]['currentX'], statsCharacter['friendly' + str(i)][14]['currentY']))
+            screen.blit(friendly1CharacterSprite, (tilePositions[statsCharacter['friendly' + str(i)][13]['currentTile'] - 1][0] - 36, tilePositions[statsCharacter['friendly' + str(i)][13]['currentTile'] - 1][1] - 104)) #-36, -104 alligns friendly character properly on tile
             if statsCharacter['friendly' + str(i)][12]['spriteNum'] == 5:
                 statsCharacter['friendly' + str(i)][12]['spriteNum'] = 1
             else:
@@ -168,7 +168,7 @@ def renderCharacters(screen, currentDirectory):
     for i in range(1, 4):
         if statsCharacter['enemy' + str(i)][11]['action'] == 'none':
             friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/enemyIdle/idle' + str(statsCharacter['enemy' + str(i)][12]['spriteNum']) + '.png')
-            screen.blit(friendly1CharacterSprite, (statsCharacter['enemy' + str(i)][13]['currentX'], statsCharacter['enemy' + str(i)][14]['currentY']))
+            screen.blit(friendly1CharacterSprite, (tilePositions[statsCharacter['enemy' + str(i)][13]['currentTile'] - 1][0] - 40, tilePositions[statsCharacter['enemy' + str(i)][13]['currentTile'] - 1][1] - 104)) #-40, -104 alligns enemy character properly on tile
             if statsCharacter['enemy' + str(i)][12]['spriteNum'] == 5:
                 statsCharacter['enemy' + str(i)][12]['spriteNum'] = 1
             else:
@@ -183,7 +183,6 @@ def renderMenus(screen, currentDirectory):
 
 def renderGame(screen):
     currentDirectory = getDirectory()
-    screen.fill((255, 255, 255)) #white
     renderSky(screen, currentDirectory)
     renderGround(screen, currentDirectory)
     renderMenus(screen, currentDirectory)

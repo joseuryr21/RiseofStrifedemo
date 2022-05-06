@@ -112,6 +112,9 @@ statsCharacter = {
 
 }
 
+def relocateMove(user, tileNumber):
+    statsCharacter[user][13]['currentTile'] = tileNumber
+
 def attackStab(user, target):
     if statsCharacter[target][11]['action'] == 'none':
         damage = statsCharacter[user][3]['attack']
