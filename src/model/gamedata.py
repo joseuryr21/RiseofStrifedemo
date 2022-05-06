@@ -15,10 +15,9 @@ statsCharacter = {
     {"debuff2": 'none'},
     {"action": 'none'},
     {"spriteNum": 1},
-    {"currentX": 44}, #-36 (tile1)
-    {"currentY": 360}, #-104 (tile1)
-    {"previousX": 0},
-    {"previousY": 0}
+    {"currentTile": 1}, #-36 (tile1)
+    {"previousTile": 0}
+
   ],
   "friendly2": [
     {"health": 100},
@@ -34,10 +33,9 @@ statsCharacter = {
     {"debuff2": 'none'},
     {"action": 'none'},
     {"spriteNum": 1},
-    {"currentX": 300},
-    {"currentY": 300},
-    {"previousX": 0},
-    {"previousY": 0}
+    {"currentTile": 2},
+    {"previousTile": 0}
+
   ],
   "friendly3": [
     {"health": 100},
@@ -53,10 +51,9 @@ statsCharacter = {
     {"debuff2": 'none'},
     {"action": 'none'},
     {"spriteNum": 1},
-    {"currentX": 500},
-    {"currentY": 500},
-    {"previousX": 0},
-    {"previousY": 0}
+    {"currentTile": 3},
+    {"previousTile": 0}
+
   ],
 
   "enemy1": [
@@ -73,10 +70,9 @@ statsCharacter = {
     {"debuff2": 'none'},
     {"action": 'none'},
     {"spriteNum": 1},
-    {"currentX": 1420},
-    {"currentY": 500},
-    {"previousX": 0},
-    {"previousY": 0}
+    {"currentTile": 25},
+    {"previousTile": 0}
+
   ],
   "enemy2": [
     {"health": 100},
@@ -92,10 +88,9 @@ statsCharacter = {
     {"debuff2": 'none'},
     {"action": 'none'},
     {"spriteNum": 1},
-    {"currentX": 1620},
-    {"currentY": 300},
-    {"previousX": 0},
-    {"previousY": 0}
+    {"currentTile": 26},
+    {"previousTile": 0}
+
   ],
   "enemy3": [
     {"health": 100}, #0
@@ -111,10 +106,8 @@ statsCharacter = {
     {"debuff2": 'none'}, #10
     {"action": 'none'}, #11
     {"spriteNum": 1}, #12
-    {"currentX": 1820}, #13
-    {"currentY": 100}, #14
-    {"previousX": 0}, #15
-    {"previousY": 0} #16
+    {"currentTile": 24}, #13
+    {"previousTile": 0} #14
   ]
 
 }

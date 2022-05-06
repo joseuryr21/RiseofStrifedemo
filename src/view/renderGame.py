@@ -4,6 +4,7 @@ import os
 from model.gamedata import statsCharacter
 
 tileSprites = ["/images/terrain/tileNormal.png", "/images/terrain/tileSelected.png", "/images/terrain/tileAttacked.png", "/images/terrain/tileHealed.png", "/images/terrain/tileLingered.png"]
+tilePositions = [[80, 464], [80, 668], [264, 412], [264, 564], [264, 716], [448, 412], [448, 564], [448, 716], [632, 412], [632, 564], [632, 716], [816, 464], [816, 668], [1044, 464], [1044, 668], [1228, 412], [1228, 564], [1228, 716], [1412, 412], [1412, 564], [1412, 716], [1596, 412], [1596, 564], [1596, 716], [1780, 464], [1780, 668]]
 
 def getDirectory():
     currentDirectory = str(os.getcwd())
