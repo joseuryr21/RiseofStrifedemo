@@ -106,23 +106,48 @@ statsCharacter = {
   }
   }
 
+def healthStat(target):
+    return statsCharacter[target]['health']
 
+def attackStat(user):
+    return statsCharacter[user]['attack']
+
+def subtractDamage(target, damage):
+    statsCharacter[target]['health'] -= damage
+
+def defenseStat(target):
+    return statsCharacter[target]['defense']
+
+def characterAction(target):
+    return statsCharacter[target]['action']
+
+def debuffSlot1(target):
+    return statsCharacter[target]['debuff1']
+
+def debuffSlot2(target):
+    return statsCharacter[target]['debuff2']
+
+def giveFragile(target, debuffSlot):
+    statsCharacter[target][debuffSlot] = 'fragile'
+
+def setHealth(target, value):
+    statsCharacter[target]['health'] = value
 
 def relocateMove(user, tileNumber):
     statsCharacter[user]['currentTile'] = tileNumber
 
 def attackStab(user, target):
-    if statsCharacter[target]['action'] == 'none':
-        damage = statsCharacter[user]['attack']
+    if characterAction(target) == 'none':
+        damage = attackStat(user)
     else:
-        damage = statsCharacter[user]['attack'] - statsCharacter[target]['defense']
+        damage = attackStat(user) - defenseStat(target)
     if damage > 0:
-        if statsCharacter[target]['debuff1'] == 'fragile' or statsCharacter[target]['debuff2'] == 'fragile':
+        if debuffSlot1(target) == 'fragile' or debuffSlot2(target) == 'fragile':
             damage *= 1.5
-        statsCharacter[target]['health'] -= damage
-        if statsCharacter[target]['debuff1'] == 'none' or statsCharacter[target]['debuff1'] == "fragile":
-            statsCharacter[target]['debuff1'] = 'fragile'
+        subtractDamage(target, damage)
+        if debuffSlot1(target) == 'none' or debuffSlot1(target) == "fragile":
+            giveFragile(target, 'debuff1')
         else:
-            statsCharacter[target]['debuff2'] = 'fragile'
-    if statsCharacter[target]['health'] < 0:
-        statsCharacter[target]['health'] = 0
+            giveFragile(target, 'debuff2')
+    if healthStat(target) < 0:
+        setHealth(target, 0)
