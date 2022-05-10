@@ -5,6 +5,7 @@ from model.gamedata import statsCharacter
 
 tileSprites = ["/images/terrain/tileNormal.png", "/images/terrain/tileSelected.png", "/images/terrain/tileAttacked.png", "/images/terrain/tileHealed.png", "/images/terrain/tileLingered.png"]
 tilePositions = [[80, 464], [80, 668], [264, 412], [264, 564], [264, 716], [448, 412], [448, 564], [448, 716], [632, 412], [632, 564], [632, 716], [816, 464], [816, 668], [1044, 464], [1044, 668], [1228, 412], [1228, 564], [1228, 716], [1412, 412], [1412, 564], [1412, 716], [1596, 412], [1596, 564], [1596, 716], [1780, 464], [1780, 668]]
+effectPositions = [[[1268, 812], [1268, 848], [1308, 848]], [[1268, 900], [1268, 936], [1308, 936]], [[1268, 988], [1268, 1024], [1308, 1024]], [[1580, 812], [1580, 848], [1540, 848]], [[1580, 900], [1580, 936], [1540, 936]], [[1580, 988], [1580, 1024], [1540, 1024]]]
 
 def getDirectory():
     currentDirectory = str(os.getcwd())
@@ -174,18 +175,40 @@ def renderCharacters(screen, currentDirectory):
             else:
                 statsCharacter['enemy' + str(i)]['spriteNum'] += 1
 
+def renderEffects(screen, currentDirectory):
+    for i in range(1, 4):
+        if statsCharacter['friendly' + str(i)]['buff1'] != 'none':
+            friendlyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['friendly' + str(i)]['buff1'] + '.png')
+            screen.blit(friendlyBuff1Sprite, (effectPositions[i - 1][0][0], effectPositions[i - 1][0][1]))
+        if statsCharacter['friendly' + str(i)]['debuff1'] != 'none':
+            friendlyDebuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff1'] + '.png')
+            screen.blit(friendlyDebuff1Sprite, (effectPositions[i - 1][1][0], effectPositions[i - 1][1][1]))
+        if statsCharacter['friendly' + str(i)]['debuff2'] != 'none':
+            friendlyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff2'] + '.png')
+            screen.blit(friendlyDebuff2Sprite, (effectPositions[i - 1][2][0], effectPositions[i - 1][2][1]))
+    for i in range(1, 4):
+        if statsCharacter['enemy' + str(i)]['buff1'] != 'none':
+            enemyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['enemy' + str(i)]['buff1'] + '.png')
+            screen.blit(enemyBuff1Sprite, (effectPositions[i + 2][0][0], effectPositions[i + 2][0][1]))
+        if statsCharacter['enemy' + str(i)]['debuff1'] != 'none':
+            enemyDebuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['enemy' + str(i)]['debuff1'] + '.png')
+            screen.blit(enemyDebuff1Sprite, (effectPositions[i + 2][1][0], effectPositions[i + 2][1][1]))
+        if statsCharacter['enemy' + str(i)]['debuff2'] != 'none':
+            enemyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['enemy' + str(i)]['debuff2'] + '.png')
+            screen.blit(enemyDebuff2Sprite, (effectPositions[i + 2][2][0], effectPositions[i + 2][2][1]))
+
 def renderMenus(screen, currentDirectory):
     renderMenuFrame(screen, currentDirectory)
     renderButtons(screen, currentDirectory)
     renderPortaits(screen, currentDirectory)
     renderBars(screen, currentDirectory)
-
+    renderEffects(screen, currentDirectory)
 
 def renderGame(screen):
     currentDirectory = getDirectory()
     renderSky(screen, currentDirectory)
     renderGround(screen, currentDirectory)
-    renderMenus(screen, currentDirectory)
     renderTiles(screen, currentDirectory)
+    renderMenus(screen, currentDirectory)
     renderCharacters(screen, currentDirectory)
     pygame.display.flip()
