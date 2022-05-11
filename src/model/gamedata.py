@@ -106,6 +106,9 @@ statsCharacter = {
   }
   }
 
+def currentTile(user):
+    return statsCharacter[user]['currentTile']
+
 def healthStat(target):
     return statsCharacter[target]['health']
 
