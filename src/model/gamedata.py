@@ -106,38 +106,64 @@ statsCharacter = {
   }
   }
 
-def currentTile(user):
-    return statsCharacter[user]['currentTile']
+def healthStat(character):
+    return statsCharacter[character]['health']
 
-def healthStat(target):
-    return statsCharacter[target]['health']
+def manaStat(character):
+    return statsCharacter[character]['mana']
 
-def attackStat(user):
-    return statsCharacter[user]['attack']
+def staminaStat(character):
+    return statsCharacter[character]['stamina']
 
-def subtractDamage(target, damage):
-    statsCharacter[target]['health'] -= damage
+def attackStat(character):
+    return statsCharacter[character]['attack']
 
-def defenseStat(target):
-    return statsCharacter[target]['defense']
+def magicStat(character):
+    return statsCharacter[character]['magic']
 
-def characterAction(target):
-    return statsCharacter[target]['action']
+def defenseStat(character):
+    return statsCharacter[character]['defense']
 
-def debuffSlot1(target):
-    return statsCharacter[target]['debuff1']
+def resistanceStat(character):
+    return statsCharacter[character]['resistance']
 
-def debuffSlot2(target):
-    return statsCharacter[target]['debuff2']
+def buffSlot1(character):
+    return statsCharacter[character]['buff1']
 
-def giveFragile(target, debuffSlot):
-    statsCharacter[target][debuffSlot] = 'fragile'
+def buffSlot2(character):
+    return statsCharacter[character]['buff2']
 
-def setHealth(target, value):
-    statsCharacter[target]['health'] = value
+def debuffSlot1(character):
+    return statsCharacter[character]['debuff1']
 
-def relocateMove(user, tileNumber):
-    statsCharacter[user]['currentTile'] = tileNumber
+def debuffSlot2(character):
+    return statsCharacter[character]['debuff2']
+
+def characterAction(character):
+    return statsCharacter[character]['action']
+
+def characterSpriteNum(character):
+    return statsCharacter[character]['SpriteNum']
+
+def characterCurrentTile(character):
+    return statsCharacter[character]['CurrentTile']
+
+def characterPreviousTile(character):
+    return statsCharacter[character]['PreviousTile']
+
+
+def subtractDamage(character, damage):
+    statsCharacter[character]['health'] -= damage
+
+def setHealth(character, value):
+    statsCharacter[character]['health'] = value
+
+def giveFragile(character, debuffSlot):
+    statsCharacter[character][debuffSlot] = 'fragile'
+
+
+def relocateMove(character, tileNumber):
+    statsCharacter[character]['currentTile'] = tileNumber
 
 def attackStab(user, target):
     if characterAction(target) == 'none':
