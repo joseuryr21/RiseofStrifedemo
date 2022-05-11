@@ -143,13 +143,13 @@ def characterAction(character):
     return statsCharacter[character]['action']
 
 def characterSpriteNum(character):
-    return statsCharacter[character]['SpriteNum']
+    return statsCharacter[character]['spriteNum']
 
 def characterCurrentTile(character):
-    return statsCharacter[character]['CurrentTile']
+    return statsCharacter[character]['currentTile']
 
 def characterPreviousTile(character):
-    return statsCharacter[character]['PreviousTile']
+    return statsCharacter[character]['previousTile']
 
 
 def subtractDamage(character, damage):
