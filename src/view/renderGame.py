@@ -162,7 +162,7 @@ def renderCharacters(screen, currentDirectory):
         if statsCharacter['friendly' + str(i)]['action'] == 'none':
             friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/friendlyIdle/idle' + str(statsCharacter['friendly' + str(i)]['spriteNum']) + '.png')
             screen.blit(friendly1CharacterSprite, (tilePositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][0] - 36, tilePositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][1] - 104)) #-36, -104 alligns friendly character properly on tile
-            if statsCharacter['friendly' + str(i)]['spriteNum'] == 5:
+            if statsCharacter['friendly' + str(i)]['spriteNum'] == 5: #max idle sprite
                 statsCharacter['friendly' + str(i)]['spriteNum'] = 1
             else:
                 statsCharacter['friendly' + str(i)]['spriteNum'] += 1
@@ -170,7 +170,7 @@ def renderCharacters(screen, currentDirectory):
         if statsCharacter['enemy' + str(i)]['action'] == 'none':
             friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/enemyIdle/idle' + str(statsCharacter['enemy' + str(i)]['spriteNum']) + '.png')
             screen.blit(friendly1CharacterSprite, (tilePositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][0] - 40, tilePositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][1] - 104)) #-40, -104 alligns enemy character properly on tile
-            if statsCharacter['enemy' + str(i)]['spriteNum'] == 5:
+            if statsCharacter['enemy' + str(i)]['spriteNum'] == 5: #max idle sprite
                 statsCharacter['enemy' + str(i)]['spriteNum'] = 1
             else:
                 statsCharacter['enemy' + str(i)]['spriteNum'] += 1
