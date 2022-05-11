@@ -81,6 +81,7 @@ def renderBars(screen, currentDirectory):
     screen.blit(enemy3ManaBarSprite, (1620, 1012))
     screen.blit(enemy3StaminaBarSprite, (1620, 1036))
 
+# if mouse inside boundaries, return img of a black tile
 def checkTileStatus(mousePosition, tileSprites, topLeftX, topLeftY, bottomRightX, bottomRightY):
     if (mousePosition[0] >= topLeftX and mousePosition[0] <= bottomRightX and mousePosition[1] >= topLeftY and mousePosition[1] <= bottomRightY):
         return tileSprites[1]
@@ -94,6 +95,7 @@ def renderTiles(screen, currentDirectory):
 
 def renderPortaits(screen, currentDirectory):
     mousePosition = pygame.mouse.get_pos()
+    # if tile character is on is higlighted, portrait frame becomes black
     for i in range(1, 4):
         if (checkTileStatus(mousePosition, tileSprites, tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][0], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][1], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][2], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][3]) == tileSprites[1]):
             friendlyPortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait2.png')
@@ -111,6 +113,7 @@ def renderPortaits(screen, currentDirectory):
 
 
 def renderCharacters(screen, currentDirectory):
+    #if characters are at the last animation frame, reset
     for i in range(1, 4):
         if statsCharacter['friendly' + str(i)]['action'] == 'none':
             friendly1CharacterSprite = pygame.image.load(currentDirectory + '/images/character/friendlyIdle/idle' + str(statsCharacter['friendly' + str(i)]['spriteNum']) + '.png')
