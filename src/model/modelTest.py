@@ -1,12 +1,12 @@
 import unittest
-from gamedata import relocateMove, currentTile, healthStat, subtractDamage, debuffSlot1, debuffSlot2, giveFragile
+from gamedata import healthStat, manaStat, staminaStat, attackStat, magicStat, defenseStat, resistanceStat, buffSlot1, buffSlot2, debuffSlot1, debuffSlot2, characterAction, characterSpriteNum, characterCurrentTile, characterPreviousTile, subtractDamage, setHealth, giveFragile, relocateMove, attackStab
 
 class TestGameData(unittest.TestCase):
 
     def test_relocateMove(self):
-        c = currentTile('friendly1')
+        c = characterCurrentTile('friendly1')
         relocateMove('friendly1', c+1)
-        self.assertEqual(currentTile('friendly1'), c+1)
+        self.assertEqual(characterCurrentTile('friendly1'), c+1)
 
     def test_Damage(self):
       initialHealth = healthStat('enemy2')
@@ -15,11 +15,16 @@ class TestGameData(unittest.TestCase):
 
     def test_DebuffFragile(self):
         initialDebuff1 = debuffSlot1('enemy3')
-        initialDebuff2 = debuffSlot2('friendly3')
         giveFragile('enemy3', 'debuff1')
-        giveFragile('friendly3', 'debuff2')
         self.assertEqual('fragile', debuffSlot1('enemy3'))
-        self.assertEqual('fragile', debuffSlot2('friendly3'))
+
+    def test_AttackStab(self):
+        initialHealth = healthStat('friendly2')
+        attackStab('enemy1', 'friendly2')
+        self.assertEqual(initialHealth, healthStat('friendly2') + 20)
+        attackStab('enemy1', 'friendly2')
+        self.assertEqual(initialHealth, healthStat('friendly2') + 50)
+
 
 if __name__ == '__main__':
     unittest.main()
