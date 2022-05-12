@@ -2,7 +2,7 @@
 
 import pygame
 from view.renderGame import renderGame
-from model.gamedata import attackStab, relocateMove
+from model.gamedata import attackStab, relocateMove, roundEndRestoration
 
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
@@ -53,3 +53,4 @@ while isRunning:
             isRunning = checkWindowQuit()
             isRunning = checkButtonQuit()
             cntLoopNum += 1
+    roundEndRestoration()

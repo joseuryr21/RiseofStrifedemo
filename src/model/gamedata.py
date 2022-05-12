@@ -14,6 +14,7 @@ statsCharacter = {
     "debuff1": 'none',
     "debuff2": 'none',
     "action": 'none',
+    "movingTo": 'none',
     "spriteNum": 1,
     "currentTile": 1,
     "previousTile": 0
@@ -26,11 +27,12 @@ statsCharacter = {
     "magic": 20,
     "defense": 30,
     "resistance": 20,
-    "buff1": 'charged',
+    "buff1": 'none',
     "buff2": 'none',
     "debuff1": 'none',
     "debuff2": 'none',
     "action": 'none',
+    "movingTo": 'none',
     "spriteNum": 1,
     "currentTile": 2,
     "previousTile": 0
@@ -48,6 +50,7 @@ statsCharacter = {
     "debuff1": 'none',
     "debuff2": 'none',
     "action": 'none',
+    "movingTo": 'none',
     "spriteNum": 1,
     "currentTile": 3,
     "previousTile": 0
@@ -66,6 +69,7 @@ statsCharacter = {
     "debuff1": 'none',
     "debuff2": 'none',
     "action": 'none',
+    "movingTo": 'none',
     "spriteNum": 1,
     "currentTile": 25,
     "previousTile": 0
@@ -83,6 +87,7 @@ statsCharacter = {
     "debuff1": 'none',
     "debuff2": 'none',
     "action": 'none',
+    "movingTo": 'none',
     "spriteNum": 1,
     "currentTile": 26,
     "previousTile": 0
@@ -100,9 +105,10 @@ statsCharacter = {
     "debuff1": 'none', #9
     "debuff2": 'none', #10
     "action": 'none', #11
-    "spriteNum": 1, #12
-    "currentTile": 24, #13
-    "previousTile": 0 #14
+    "movingTo": 'none', #12
+    "spriteNum": 1, #13
+    "currentTile": 24, #14
+    "previousTile": 0 #15
   }
   }
 
@@ -180,3 +186,14 @@ def attackStab(user, target):
             giveFragile(target, 'debuff2')
     if healthStat(target) < 0:
         setHealth(target, 0)
+
+def roundEndRestoration():
+    chars = ['friendly', 'enemy']
+    for c in chars:
+        for i in range(1, 4):
+            if healthStat(c + str(i)) != 0:
+                statsCharacter[c + str(i)]['mana'] += 20
+                if statsCharacter[c + str(i)]['mana'] > 100:
+                    statsCharacter[c + str(i)]['mana'] = 100
+                if statsCharacter[c + str(i)]['movingTo'] == 'none':
+                    statsCharacter[c + str(i)]['stamina'] = 3
