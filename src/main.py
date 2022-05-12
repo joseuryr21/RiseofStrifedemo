@@ -34,9 +34,6 @@ def checkButtonQuit():
 while isRunning:
     clock.tick(30)
     renderGame(screen)
-    attackStab('friendly1','enemy1')#test
-    attackStab('enemy2','friendly3')#test
-    relocateMove('friendly1', 8)
     isRunning = checkWindowQuit()
     isRunning = checkButtonQuit()
     cntLoopNum += 1
