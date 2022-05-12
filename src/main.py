@@ -7,7 +7,9 @@ from model.gamedata import attackStab, relocateMove
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
 cntLoopNum = 0
+cntTurnNum = 0
 clock = pygame.time.Clock()
+renderGame(screen)
 
 def checkWindowQuit():
     for event in pygame.event.get():
@@ -36,4 +38,18 @@ while isRunning:
     renderGame(screen)
     isRunning = checkWindowQuit()
     isRunning = checkButtonQuit()
-    cntLoopNum += 1
+    optionSelecting = True
+    while optionSelecting and isRunning:
+        if cntTurnNum % 2 == 0: #player
+            clock.tick(30)
+            renderGame(screen)
+            isRunning = checkWindowQuit()
+            isRunning = checkButtonQuit()
+            cntLoopNum += 1
+            optionSelecting = False #test
+        else: #ai
+            clock.tick(30)
+            renderGame(screen)
+            isRunning = checkWindowQuit()
+            isRunning = checkButtonQuit()
+            cntLoopNum += 1
