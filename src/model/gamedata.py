@@ -139,16 +139,16 @@ def resistanceStat(character):
     return statsCharacter[character]['resistance']
 
 def buffSlot1(character):
-    return statsCharacter[character]['buff1']
+    return statsCharacter[character]['buff1'][0]
 
 def buffSlot2(character):
-    return statsCharacter[character]['buff2']
+    return statsCharacter[character]['buff2'][0]
 
 def debuffSlot1(character):
-    return statsCharacter[character]['debuff1']
+    return statsCharacter[character]['debuff1'][0]
 
 def debuffSlot2(character):
-    return statsCharacter[character]['debuff2']
+    return statsCharacter[character]['debuff2'][0]
 
 def characterAction(character):
     return statsCharacter[character]['action']
