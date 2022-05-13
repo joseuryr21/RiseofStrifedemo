@@ -162,7 +162,6 @@ def characterCurrentTile(character):
 def characterPreviousTile(character):
     return statsCharacter[character]['previousTile']
 
-
 def subtractDamage(character, damage):
     statsCharacter[character]['health'] -= damage
 
@@ -173,9 +172,6 @@ def giveFragile(character, debuffSlot):
     statsCharacter[character][debuffSlot][0] = 'fragile'
     statsCharacter[character][debuffSlot][1] = 1
 
-
-def relocateMove(character, tileNumber):
-    statsCharacter[character]['currentTile'] = tileNumber
 #----------------------------------------------------------------------#
 #                              Actions                                 #
 #----------------------------------------------------------------------#
@@ -196,6 +192,9 @@ def attackStab(user, target):
     if healthStat(target) < 0:
         setHealth(target, 0)
 
+
+def relocateMove(character, tileNumber):
+    statsCharacter[character]['currentTile'] = tileNumber
 
 #----------------------------------------------------------------------#
 #                              General                                 #
