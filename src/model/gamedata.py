@@ -9,10 +9,10 @@ statsCharacter = {
     "magic": 20,
     "defense": 30,
     "resistance": 20,
-    "buff1": 'none',
-    "buff2": 'none',
-    "debuff1": 'none',
-    "debuff2": 'none',
+    "buff1": ['none', 0],
+    "buff2": ['none', 0],
+    "debuff1": ['none', 0],
+    "debuff2": ['none', 0],
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
@@ -27,10 +27,10 @@ statsCharacter = {
     "magic": 20,
     "defense": 30,
     "resistance": 20,
-    "buff1": 'none',
-    "buff2": 'none',
-    "debuff1": 'none',
-    "debuff2": 'none',
+    "buff1": ['none', 0],
+    "buff2": ['none', 0],
+    "debuff1": ['none', 0],
+    "debuff2": ['none', 0],
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
@@ -45,10 +45,10 @@ statsCharacter = {
     "magic": 20,
     "defense": 30,
     "resistance": 20,
-    "buff1": 'none',
-    "buff2": 'none',
-    "debuff1": 'none',
-    "debuff2": 'none',
+    "buff1": ['none', 0],
+    "buff2": ['none', 0],
+    "debuff1": ['none', 0],
+    "debuff2": ['none', 0],
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
@@ -64,10 +64,10 @@ statsCharacter = {
     "magic": 20,
     "defense": 30,
     "resistance": 20,
-    "buff1": 'none',
-    "buff2": 'none',
-    "debuff1": 'none',
-    "debuff2": 'none',
+    "buff1": ['none', 0],
+    "buff2": ['none', 0],
+    "debuff1": ['none', 0],
+    "debuff2": ['none', 0],
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
@@ -82,10 +82,10 @@ statsCharacter = {
     "magic": 20,
     "defense": 30,
     "resistance": 20,
-    "buff1": 'none',
-    "buff2": 'none',
-    "debuff1": 'none',
-    "debuff2": 'none',
+    "buff1": ['none', 0],
+    "buff2": ['none', 0],
+    "debuff1": ['none', 0],
+    "debuff2": ['none', 0],
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
@@ -100,10 +100,10 @@ statsCharacter = {
     "magic": 20, #4
     "defense": 30, #5
     "resistance": 20, #6
-    "buff1": 'none', #7
-    "buff2": 'none', #8
-    "debuff1": 'none', #9
-    "debuff2": 'none', #10
+    "buff1": ['charged', 1], #7
+    "buff2": ['none', 0], #8
+    "debuff1": ['fragile', 1], #9
+    "debuff2": ['none', 0], #10
     "action": 'none', #11
     "movingTo": 'none', #12
     "spriteNum": 1, #13
@@ -165,7 +165,8 @@ def setHealth(character, value):
     statsCharacter[character]['health'] = value
 
 def giveFragile(character, debuffSlot):
-    statsCharacter[character][debuffSlot] = 'fragile'
+    statsCharacter[character][debuffSlot][0] = 'fragile'
+    statsCharacter[character][debuffSlot][1] = 1
 
 
 def relocateMove(character, tileNumber):

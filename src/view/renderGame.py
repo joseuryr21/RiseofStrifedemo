@@ -133,24 +133,25 @@ def renderCharacters(screen, currentDirectory):
 
 def renderEffects(screen, currentDirectory):
     for i in range(1, 4):
-        if statsCharacter['friendly' + str(i)]['buff1'] != 'none':
-            friendlyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['friendly' + str(i)]['buff1'] + '.png')
+        if statsCharacter['friendly' + str(i)]['buff1'][0] != 'none':
+            friendlyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['friendly' + str(i)]['buff1'][0] + '.png')
             screen.blit(friendlyBuff1Sprite, (effectPositions[i - 1][0][0], effectPositions[i - 1][0][1]))
-        if statsCharacter['friendly' + str(i)]['debuff1'] != 'none':
-            friendlyDebuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff1'] + '.png')
+        if statsCharacter['friendly' + str(i)]['debuff1'][0] != 'none':
+            friendlyDebuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff1'][0] + '.png')
             screen.blit(friendlyDebuff1Sprite, (effectPositions[i - 1][1][0], effectPositions[i - 1][1][1]))
-        if statsCharacter['friendly' + str(i)]['debuff2'] != 'none':
-            friendlyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff2'] + '.png')
+        if statsCharacter['friendly' + str(i)]['debuff2'][0] != 'none':
+            friendlyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff2'][0] + '.png')
             screen.blit(friendlyDebuff2Sprite, (effectPositions[i - 1][2][0], effectPositions[i - 1][2][1]))
     for i in range(1, 4):
-        if statsCharacter['enemy' + str(i)]['buff1'] != 'none':
-            enemyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['enemy' + str(i)]['buff1'] + '.png')
+        print(statsCharacter['enemy' + str(i)]['buff1'][0])
+        if statsCharacter['enemy' + str(i)]['buff1'][0] != 'none':
+            enemyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['enemy' + str(i)]['buff1'][0] + '.png')
             screen.blit(enemyBuff1Sprite, (effectPositions[i + 2][0][0], effectPositions[i + 2][0][1]))
-        if statsCharacter['enemy' + str(i)]['debuff1'] != 'none':
-            enemyDebuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['enemy' + str(i)]['debuff1'] + '.png')
+        if statsCharacter['enemy' + str(i)]['debuff1'][0] != 'none':
+            enemyDebuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['enemy' + str(i)]['debuff1'][0] + '.png')
             screen.blit(enemyDebuff1Sprite, (effectPositions[i + 2][1][0], effectPositions[i + 2][1][1]))
-        if statsCharacter['enemy' + str(i)]['debuff2'] != 'none':
-            enemyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['enemy' + str(i)]['debuff2'] + '.png')
+        if statsCharacter['enemy' + str(i)]['debuff2'][0] != 'none':
+            enemyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['enemy' + str(i)]['debuff2'][0] + '.png')
             screen.blit(enemyDebuff2Sprite, (effectPositions[i + 2][2][0], effectPositions[i + 2][2][1]))
 
 def renderMenus(screen, currentDirectory):
