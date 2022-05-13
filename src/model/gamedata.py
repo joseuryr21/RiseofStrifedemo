@@ -179,7 +179,7 @@ def giveFragile(character, debuffSlot):
 def attackStab(user, target):
     if characterAction(target) == 'none':
         damage = attackStat(user)
-    else:
+    elif characterAction(target) == 'defendSelf':
         damage = attackStat(user) - defenseStat(target)
     if damage > 0:
         if debuffSlot1(target) == 'fragile' or debuffSlot2(target) == 'fragile':
