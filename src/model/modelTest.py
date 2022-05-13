@@ -1,5 +1,5 @@
 import unittest
-from gamedata import healthStat, manaStat, staminaStat, attackStat, magicStat, defenseStat, resistanceStat, buffSlot1, buffSlot2, debuffSlot1, debuffSlot2, characterAction, characterSpriteNum, characterCurrentTile, characterPreviousTile, subtractDamage, setHealth, giveFragile, relocateMove, attackStab, isActionDecided, statsCharacter
+from gamedata import healthStat, manaStat, staminaStat, attackStat, magicStat, defenseStat, resistanceStat, buffSlot1, buffSlot2, debuffSlot1, debuffSlot2, characterAction, characterSpriteNum, characterCurrentTile, characterPreviousTile, subtractDamage, setHealth, giveFragile, relocateMove, attackStab, isActionDecided, roundEndRestoration, defendSelf, statsCharacter
 
 class TestGameData(unittest.TestCase):
 
@@ -29,6 +29,41 @@ class TestGameData(unittest.TestCase):
         statsCharacter['friendly1']['action'] = 'attack'
         self.assertEqual(isActionDecided('friendly'), [True, False, False] )
         self.assertEqual(isActionDecided('enemy'), [False, False, False] )
+
+    def test_roundEndRestoration(self):
+        statsCharacter['friendly1']['action'] = 'attack'
+        statsCharacter['friendly2']['movingTo'] = 2
+        statsCharacter['friendly3']['mana'] = 81
+        statsCharacter['enemy1']['movingTo'] = 'none'
+        statsCharacter['enemy1']['stamina'] = 1
+        statsCharacter['enemy2']['health'] = 0
+        statsCharacter['enemy2']['mana'] = 81
+        statsCharacter['enemy3']['buff1'][0] = 'charged'
+        statsCharacter['enemy3']['buff1'][1] = 1
+        statsCharacter['enemy3']['debuff1'][0] = 'fragile'
+        statsCharacter['enemy3']['debuff1'][1] = 1
+        statsCharacter['enemy3']['debuff2'][0] = 'vulnerable'
+        statsCharacter['enemy3']['debuff2'][1] = 2
+        roundEndRestoration()
+        self.assertEqual(statsCharacter['friendly1']['action'], 'none')
+        self.assertEqual(statsCharacter['friendly2']['movingTo'], 'none')
+        self.assertEqual(statsCharacter['friendly3']['mana'], 100)
+        self.assertEqual(statsCharacter['enemy1']['stamina'], 3)
+        self.assertEqual(statsCharacter['enemy2']['mana'], 81)
+        self.assertEqual(statsCharacter['enemy3']['buff1'][0], 'none')
+        self.assertEqual(statsCharacter['enemy3']['buff1'][1], 0)
+        self.assertEqual(statsCharacter['enemy3']['debuff1'][0], 'none')
+        self.assertEqual(statsCharacter['enemy3']['debuff1'][1], 0)
+        self.assertEqual(statsCharacter['enemy3']['debuff2'][0], 'vulnerable')
+        self.assertEqual(statsCharacter['enemy3']['debuff2'][1], 1)
+
+    def test_defendSelf(self):
+        defendSelf('friendly1')
+        attackStab('enemy3', 'friendly1')
+        self.assertEqual(statsCharacter['friendly1']['health'], 100)
+        self.assertEqual(statsCharacter['friendly1']['debuff1'][0], 'none')
+        self.assertEqual(statsCharacter['friendly1']['debuff1'][1], 0)
+
 
 if __name__ == '__main__':
     unittest.main()
