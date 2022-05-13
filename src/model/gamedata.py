@@ -208,6 +208,8 @@ def attackStab(user, target):
     if healthStat(target) < 0:
         setHealth(target, 0)
 
+def defendSelf(character):
+    statsCharacter[character]['action'] = 'defendSelf'
 
 def relocateMove(character, tileNumber):
     statsCharacter[character]['currentTile'] = tileNumber
