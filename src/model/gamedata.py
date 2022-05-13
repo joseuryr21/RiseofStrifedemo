@@ -112,6 +112,11 @@ statsCharacter = {
   }
   }
 
+
+#----------------------------------------------------------------------#
+#                         Dependent functions                          #
+#----------------------------------------------------------------------#
+
 def healthStat(character):
     return statsCharacter[character]['health']
 
@@ -171,6 +176,9 @@ def giveFragile(character, debuffSlot):
 
 def relocateMove(character, tileNumber):
     statsCharacter[character]['currentTile'] = tileNumber
+#----------------------------------------------------------------------#
+#                              Actions                                 #
+#----------------------------------------------------------------------#
 
 def attackStab(user, target):
     if characterAction(target) == 'none':
@@ -187,6 +195,11 @@ def attackStab(user, target):
             giveFragile(target, 'debuff2')
     if healthStat(target) < 0:
         setHealth(target, 0)
+
+
+#----------------------------------------------------------------------#
+#                              General                                 #
+#----------------------------------------------------------------------#
 
 def roundEndRestoration():
     effects = ['buff1', 'buff2', 'debuff1', 'debuff2']

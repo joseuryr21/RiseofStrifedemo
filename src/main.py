@@ -4,6 +4,10 @@ import pygame
 from view.renderGame import renderGame
 from model.gamedata import attackStab, relocateMove, roundEndRestoration, isActionDecided, testActionsDecided
 
+#----------------------------------------------------------------------#
+#                            Initial setup                             #
+#----------------------------------------------------------------------#
+
 screen = pygame.display.set_mode([1920, 1080])
 isRunning = True
 cntLoopNum = 0
@@ -11,6 +15,10 @@ cntTurnNum = 0
 clock = pygame.time.Clock()
 renderGame(screen)
 characterDecisions = ['','','','','','']
+
+#----------------------------------------------------------------------#
+#                              Functions                               #
+#----------------------------------------------------------------------#
 
 def checkButtonQuit():
     pygame.event.get()
@@ -31,6 +39,10 @@ def universalSetup():
     renderGame(screen)
     isRunning = checkButtonQuit()
     return isRunning
+
+#----------------------------------------------------------------------#
+#                             Game loop                                #
+#----------------------------------------------------------------------#
 
 while isRunning:
     optionSelecting = True
