@@ -208,3 +208,7 @@ def isActionDecided(side):
         else:
             actions[i - 1] = False
     return actions
+
+def testActionsDecided(side):
+    for i in range(1, 4):
+        statsCharacter[side + str(i)]['action'] = 'Test'

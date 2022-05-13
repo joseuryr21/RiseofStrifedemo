@@ -37,6 +37,7 @@ while isRunning:
     while optionSelecting and isRunning:
         if cntTurnNum % 2 == 0: #player
             isRunning = universalSetup()
+            testActionsDecided('friendly')
             characterDecisions[0], characterDecisions[1], characterDecisions[2] = isActionDecided('friendly')
             cntLoopNum += 1
             if characterDecisions[0] == True and characterDecisions[1] == True and characterDecisions[2] == True:
