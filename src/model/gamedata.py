@@ -197,3 +197,14 @@ def roundEndRestoration():
                     statsCharacter[c + str(i)]['mana'] = 100
                 if statsCharacter[c + str(i)]['movingTo'] == 'none':
                     statsCharacter[c + str(i)]['stamina'] = 3
+            statsCharacter[c + str(i)]['action'] = 'none'
+            statsCharacter[c + str(i)]['movingTo'] = 'none'
+
+def isActionDecided(side):
+    actions = ['none', 'none', 'none']
+    for i in range(1, 4):
+        if statsCharacter[side + str(i)]['action'] != 'none' or statsCharacter[side + str(i)]['movingTo'] != 'none':
+            actions[i - 1] = True
+        else:
+            actions[i - 1] = False
+    return actions

@@ -1,5 +1,5 @@
 import unittest
-from gamedata import healthStat, manaStat, staminaStat, attackStat, magicStat, defenseStat, resistanceStat, buffSlot1, buffSlot2, debuffSlot1, debuffSlot2, characterAction, characterSpriteNum, characterCurrentTile, characterPreviousTile, subtractDamage, setHealth, giveFragile, relocateMove, attackStab
+from gamedata import healthStat, manaStat, staminaStat, attackStat, magicStat, defenseStat, resistanceStat, buffSlot1, buffSlot2, debuffSlot1, debuffSlot2, characterAction, characterSpriteNum, characterCurrentTile, characterPreviousTile, subtractDamage, setHealth, giveFragile, relocateMove, attackStab, isActionDecided, statsCharacter
 
 class TestGameData(unittest.TestCase):
 
@@ -25,6 +25,10 @@ class TestGameData(unittest.TestCase):
         attackStab('enemy1', 'friendly2')
         self.assertEqual(initialHealth, healthStat('friendly2') + 50)
 
+    def test_isActionDecided(self):
+        statsCharacter['friendly1']['action'] = 'attack'
+        self.assertEqual(isActionDecided('friendly'), [True, False, False] )
+        self.assertEqual(isActionDecided('enemy'), [False, False, False] )
 
 if __name__ == '__main__':
     unittest.main()
