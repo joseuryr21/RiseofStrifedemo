@@ -112,6 +112,22 @@ statsCharacter = {
   }
   }
 
+defaultStats = {
+    "health": 100,
+    "mana": 50,
+    "stamina": 3,
+    "attack": 20,
+    "magic": 20,
+    "defense": 30,
+    "resistance": 20,
+    "buff1": ['none', 0],
+    "buff2": ['none', 0],
+    "debuff1": ['none', 0],
+    "debuff2": ['none', 0],
+    "action": 'none',
+    "movingTo": 'none',
+    "spriteNum": 1,
+  }
 
 #----------------------------------------------------------------------#
 #                         Dependent functions                          #
