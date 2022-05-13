@@ -189,6 +189,7 @@ def attackStab(user, target):
         setHealth(target, 0)
 
 def roundEndRestoration():
+    effects = ['buff1', 'buff2', 'debuff1', 'debuff2']
     chars = ['friendly', 'enemy']
     for c in chars:
         for i in range(1, 4):
@@ -198,8 +199,13 @@ def roundEndRestoration():
                     statsCharacter[c + str(i)]['mana'] = 100
                 if statsCharacter[c + str(i)]['movingTo'] == 'none':
                     statsCharacter[c + str(i)]['stamina'] = 3
-            statsCharacter[c + str(i)]['action'] = 'none'
-            statsCharacter[c + str(i)]['movingTo'] = 'none'
+                statsCharacter[c + str(i)]['action'] = 'none'
+                statsCharacter[c + str(i)]['movingTo'] = 'none'
+                for e in effects:
+                    if statsCharacter[c + str(i)][e][1] != 0:
+                        statsCharacter[c + str(i)][e][1] -= 1
+                        if statsCharacter[c + str(i)][e][1] == 0:
+                            statsCharacter[c + str(i)][e][0] = 'none'
 
 def isActionDecided(side):
     actions = ['none', 'none', 'none']
