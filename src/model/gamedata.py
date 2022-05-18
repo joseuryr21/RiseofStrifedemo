@@ -213,7 +213,19 @@ def defendSelf(character):
     statsCharacter[character]['action'] = 'defendSelf'
 
 def relocateMove(character, tileNumber):
-    statsCharacter[character]['currentTile'] = tileNumber
+    topLeftXMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][0] - 185 #185 is just enough to move horizontally through columns
+    topLeftYMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][1] - 205 #205 is just enough to move vertically in a two tile column
+    bottomRightXMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][0] + 185
+    bottomRightYMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][1] + 205
+    if tilePositions[tileNumber - 1][0] > topLeftXMoveRange and tilePositions[tileNumber - 1][0] < bottomRightXMoveRange and tilePositions[tileNumber - 1][1] > topLeftYMoveRange and tilePositions[tileNumber - 1][1] < bottomRightYMoveRange and tileNumber != statsCharacter[character]['currentTile']:
+        for i in range(1, 4):
+            if str(i) == character[-1]: #if evaluating same character
+                break
+            if (tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][0] == tilePositions[tileNumber - 1][0] and tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][1] == tilePositions[tileNumber - 1][1]):
+                return False
+        statsCharacter[character]['currentTile'] = tileNumber
+        return True
+    return False
 
 #----------------------------------------------------------------------#
 #                              General                                 #
