@@ -143,7 +143,6 @@ def renderEffects(screen, currentDirectory):
             friendlyDebuff2Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/debuffs/' + statsCharacter['friendly' + str(i)]['debuff2'][0] + '.png')
             screen.blit(friendlyDebuff2Sprite, (effectPositions[i - 1][2][0], effectPositions[i - 1][2][1]))
     for i in range(1, 4):
-        print(statsCharacter['enemy' + str(i)]['buff1'][0])
         if statsCharacter['enemy' + str(i)]['buff1'][0] != 'none':
             enemyBuff1Sprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/buffs/' + statsCharacter['enemy' + str(i)]['buff1'][0] + '.png')
             screen.blit(enemyBuff1Sprite, (effectPositions[i + 2][0][0], effectPositions[i + 2][0][1]))
