@@ -1,4 +1,5 @@
 #stored gamedata
+from view.renderGame import tilePositions
 
 statsCharacter = {
   "friendly1": {
