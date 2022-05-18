@@ -1,5 +1,5 @@
 import unittest
-from gamedata import healthStat, manaStat, staminaStat, attackStat, magicStat, defenseStat, resistanceStat, buffSlot1, buffSlot2, debuffSlot1, debuffSlot2, characterAction, characterSpriteNum, characterCurrentTile, characterPreviousTile, subtractDamage, setHealth, giveFragile, relocateMove, attackStab, isActionDecided, roundEndRestoration, defendSelf, statsCharacter
+from gamedata import *
 
 class TestGameData(unittest.TestCase):
 
@@ -64,6 +64,19 @@ class TestGameData(unittest.TestCase):
         self.assertEqual(statsCharacter['friendly1']['debuff1'][0], 'none')
         self.assertEqual(statsCharacter['friendly1']['debuff1'][1], 0)
 
+    def test_relocateMove(self):
+        statsCharacter['friendly3']['currentTile'] = 5
+        initial = statsCharacter['friendly3']['currentTile']
+        statsCharacter['friendly2']['currentTile'] = 1
+        initial2 = statsCharacter['friendly2']['currentTile']
+        relocateMove('friendly3', 4)
+        self.assertEqual(initial, statsCharacter['friendly3']['currentTile'] - 1)
+        relocateMove('friendly3', 10)
+        self.assertEqual(statsCharacter['friendly3']['currentTile'], 4)
+        returnResult = relocateMove('friendly3', 4)
+        self.assertEqual(returnResult, False)
+        returnResult = relocateMove('friendly3', 1)
+        self.assertEqual(returnResult, False)
 
 if __name__ == '__main__':
     unittest.main()
