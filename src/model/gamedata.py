@@ -16,7 +16,7 @@ statsCharacter = {
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
-    "currentTile": 1,
+    "currentTile": 10,
     "previousTile": 0
   },
   "friendly2": {
@@ -34,7 +34,7 @@ statsCharacter = {
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
-    "currentTile": 2,
+    "currentTile": 3,
     "previousTile": 0
   },
   "friendly3": {
@@ -52,7 +52,7 @@ statsCharacter = {
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
-    "currentTile": 3,
+    "currentTile": 5,
     "previousTile": 0
     },
 
@@ -71,7 +71,7 @@ statsCharacter = {
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
-    "currentTile": 25,
+    "currentTile": 17,
     "previousTile": 0
   },
   "enemy2": {
@@ -89,7 +89,7 @@ statsCharacter = {
     "action": 'none',
     "movingTo": 'none',
     "spriteNum": 1,
-    "currentTile": 26,
+    "currentTile": 22,
     "previousTile": 0
   },
   "enemy3": {
