@@ -222,10 +222,10 @@ def relocateMove(character, tileNumber):
             if str(i) == character[-1]: #if evaluating same character
                 break
             if (tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][0] == tilePositions[tileNumber - 1][0] and tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][1] == tilePositions[tileNumber - 1][1]):
-                return False
+                return 'none'
         statsCharacter[character]['currentTile'] = tileNumber
-        return True
-    return False
+        return tileNumber
+    return 'none'
 
 #----------------------------------------------------------------------#
 #                              General                                 #
@@ -261,4 +261,4 @@ def isActionDecided(side):
 
 def testActionsDecided(side):
     for i in range(1, 4):
-        statsCharacter[side + str(i)]['action'] = 'Test'
+        statsCharacter[side + str(i)]['action'] = 'test'

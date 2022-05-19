@@ -74,9 +74,9 @@ class TestGameData(unittest.TestCase):
         relocateMove('friendly3', 10)
         self.assertEqual(statsCharacter['friendly3']['currentTile'], 4)
         returnResult = relocateMove('friendly3', 4)
-        self.assertEqual(returnResult, False)
+        self.assertEqual(returnResult, 'none')
         returnResult = relocateMove('friendly3', 1)
-        self.assertEqual(returnResult, False)
+        self.assertEqual(returnResult, 'none')
 
 if __name__ == '__main__':
     unittest.main()
