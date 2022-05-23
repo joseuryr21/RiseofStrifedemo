@@ -87,6 +87,6 @@ while isRunning:
             cntLoopNum += 1
             cntTurnNum += 1
             optionSelecting = False #test
-    for i in range(0, 6):
-        characterDecisions[i] = False
+            for i in range(0, 6):
+                characterDecisions[i] = False
     roundEndRestoration()
