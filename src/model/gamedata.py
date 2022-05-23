@@ -101,9 +101,9 @@ statsCharacter = {
     "magic": 20, #4
     "defense": 30, #5
     "resistance": 20, #6
-    "buff1": ['charged', 1], #7
+    "buff1": ['none', 0], #7
     "buff2": ['none', 0], #8
-    "debuff1": ['fragile', 1], #9
+    "debuff1": ['none', 0], #9
     "debuff2": ['none', 0], #10
     "action": 'none', #11
     "movingTo": 'none', #12
