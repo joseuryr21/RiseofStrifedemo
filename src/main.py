@@ -2,7 +2,7 @@
 
 import pygame
 from view.renderGame import renderGame, tileSprites, tileHoverPositions, checkTileStatus
-from model.gamedata import attackStab, relocateMove, roundEndRestoration, isActionDecided, testActionsDecided
+from model.gamedata import attackStab, relocateMove, roundEndRestoration, isActionDecided
 
 #----------------------------------------------------------------------#
 #                            Initial setup                             #
@@ -77,7 +77,6 @@ while isRunning:
                         characterDecisions[2] = relocateMove('friendly3', i + 1) #
                         i = 26
             #make a boolean for if move(for now), which is True when the button is clicked(press anim?). Then If if it's true and player clicks on a tile attempt to move to that tile
-            #testActionsDecided('friendly')
             characterDecisions[0], characterDecisions[1], characterDecisions[2] = isActionDecided('friendly')
             cntLoopNum += 1
             if characterDecisions[0] == True and characterDecisions[1] == True and characterDecisions[2] == True:
