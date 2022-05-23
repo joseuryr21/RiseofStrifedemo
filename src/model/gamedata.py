@@ -217,15 +217,20 @@ def relocateMove(character, tileNumber):
     topLeftYMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][1] - 205 #205 is just enough to move vertically in a two tile column
     bottomRightXMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][0] + 185
     bottomRightYMoveRange = tilePositions[statsCharacter[character]['currentTile'] - 1][1] + 205
-    if tilePositions[tileNumber - 1][0] > topLeftXMoveRange and tilePositions[tileNumber - 1][0] < bottomRightXMoveRange and tilePositions[tileNumber - 1][1] > topLeftYMoveRange and tilePositions[tileNumber - 1][1] < bottomRightYMoveRange and tileNumber != statsCharacter[character]['currentTile']:
-        for i in range(1, 4):
-            if str(i) == character[-1]: #if evaluating same character
-                break
-            if (tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][0] == tilePositions[tileNumber - 1][0] and tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][1] == tilePositions[tileNumber - 1][1]):
-                return 'none'
-        statsCharacter[character]['currentTile'] = tileNumber
-        return tileNumber
-    return 'none'
+    if statsCharacter[character]['stamina'] != 0:
+        if tilePositions[tileNumber - 1][0] > topLeftXMoveRange and tilePositions[tileNumber - 1][0] < bottomRightXMoveRange and tilePositions[tileNumber - 1][1] > topLeftYMoveRange and tilePositions[tileNumber - 1][1] < bottomRightYMoveRange and tileNumber != statsCharacter[character]['currentTile']:
+            for i in range(1, 4):
+                if str(i) == character[-1]: #if evaluating same character
+                    break
+                if (tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][0] == tilePositions[tileNumber - 1][0] and tilePositions[statsCharacter[character[0:-1] + str(i)]['currentTile'] - 1][1] == tilePositions[tileNumber - 1][1]):
+                    statsCharacter[character]['movingTo'] = 'none'
+                    return
+            statsCharacter[character]['currentTile'] = tileNumber
+            statsCharacter[character]['movingTo'] = tileNumber
+            statsCharacter[character]['stamina'] -= 1
+            return
+    statsCharacter[character]['movingTo'] = 'none'
+    return
 
 #----------------------------------------------------------------------#
 #                              General                                 #
