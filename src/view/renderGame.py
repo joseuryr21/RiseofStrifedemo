@@ -7,6 +7,7 @@ tilePositions = [[80, 464], [80, 668], [264, 412], [264, 564], [264, 716], [448,
 tileHoverPositions = [[20, 392, 196, 588], [20, 592, 196, 788], [204, 392, 380, 508], [204, 516, 380, 660], [204, 668, 380, 788], [388, 392, 564, 508], [388, 516, 564, 660], [388, 668, 564, 788], [572, 392, 740, 508], [572, 516, 740, 660], [572, 668, 740, 788], [756, 392, 932, 588], [756, 592, 932, 788], [984, 392, 1160, 588], [984, 592, 1160, 788], [1168, 392, 1344, 508], [1168, 516, 1344, 660], [1168, 668, 1344, 788], [1352, 392, 1528, 508], [1352, 516, 1528, 660], [1352, 668, 1528, 788], [1536, 392, 1712, 508], [1536, 516, 1712, 660], [1536, 668, 1712, 788], [1720, 392, 1896, 588], [1720, 592, 1896, 788]]
 effectPositions = [[[1268, 812], [1268, 848], [1308, 848]], [[1268, 900], [1268, 936], [1308, 936]], [[1268, 988], [1268, 1024], [1308, 1024]], [[1580, 812], [1580, 848], [1540, 848]], [[1580, 900], [1580, 936], [1540, 936]], [[1580, 988], [1580, 1024], [1540, 1024]]]
 portraitPositions = [[980, 808], [980, 896], [980, 984], [1828, 808], [1828, 896], [1828, 984]]
+mainButtonsPositions = [[28, 824], [428, 824], [28, 948], [428, 948], [828, 824], [1840, 0]]
 subMenuButtons = {
     'attack': ['slash', 'stab'],
     'defend': ['self', 'ally'],
@@ -37,17 +38,17 @@ def renderMenuFrame(screen, currentDirectory):
 def renderButtons(screen, currentDirectory):
     if currentMenu() == 'main':
         attackSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Attack1.png')
-        screen.blit(attackSprite, (28, 824))
+        screen.blit(attackSprite, (mainButtonsPositions[0][0], mainButtonsPositions[0][1]))
         defendSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Defend1.png')
-        screen.blit(defendSprite, (428, 824))
+        screen.blit(defendSprite, (mainButtonsPositions[1][0], mainButtonsPositions[1][1]))
         specialSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Special1.png')
-        screen.blit(specialSprite, (28, 948))
+        screen.blit(specialSprite, (mainButtonsPositions[2][0], mainButtonsPositions[2][1]))
         relocateSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Relocate2.png')
-        screen.blit(relocateSprite, (428, 948))
+        screen.blit(relocateSprite, (mainButtonsPositions[3][0], mainButtonsPositions[3][1]))
     backSprite = pygame.image.load(currentDirectory + '/images/menu/grayMenu/mainbuttons/Back1.png')
-    screen.blit(backSprite, (828, 824))
+    screen.blit(backSprite, (mainButtonsPositions[4][0], mainButtonsPositions[4][1]))
     exitSprite = pygame.image.load(currentDirectory + '/images/menu/Exit1.png')
-    screen.blit(exitSprite, (1840, 0))
+    screen.blit(exitSprite, (mainButtonsPositions[5][0], mainButtonsPositions[5][1]))
 
 def createBarSpritesheet(currentDirectory, index, characterType, statType):
     return (currentDirectory) + '/images/menu/blueMenu/' + characterType + statType + '/' + statType.lower() + str(index) + '.png'
