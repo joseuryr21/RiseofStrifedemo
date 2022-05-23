@@ -130,6 +130,11 @@ defaultStats = {
     "spriteNum": 1,
   }
 
+menuLocation = 'main'
+#main, attack, defend, special, or relocate
+
+
+
 #----------------------------------------------------------------------#
 #                         Dependent functions                          #
 #----------------------------------------------------------------------#
@@ -264,3 +269,5 @@ def isActionDecided(side):
             actions[i - 1] = False
     return actions
 
+def currentMenu():
+    return menuLocation
