@@ -1,7 +1,7 @@
 #the game loop
 
 import pygame
-from view.renderGame import renderGame, tileSprites, tileHoverPositions, checkTileStatus
+from view.renderGame import renderGame, tileSprites, tileHoverPositions, checkHoverStatus
 from model.gamedata import attackStab, relocateMove, roundEndRestoration, isActionDecided
 
 #----------------------------------------------------------------------#
@@ -57,25 +57,26 @@ while isRunning:
             isRunning = universalSetup()
             if characterDecisions[0] == False:
                 mousePosition, isMousePressed = mouseActivity() #choosing a place to do actions
-                for i in range(0, 26): #
-                    isHovered = checkTileStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3]) #
-                    if isHovered == '/images/terrain/tileSelected.png' and isMousePressed[0]: #
-                        characterDecisions[0] = relocateMove('friendly1', i + 1) #
+                for i in range(0, 26):
+                    isHovered = checkHoverStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3])
+                    if isHovered == '/images/terrain/tileSelected.png' and isMousePressed[0]:
+                        characterDecisions[0] = relocateMove('friendly1', i + 1)
                         i = 26
             elif characterDecisions[1] == False:
                     mousePosition, isMousePressed = mouseActivity() #choosing a place to do actions
-                    for i in range(0, 26): #
-                        isHovered = checkTileStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3]) #
-                        if isHovered == '/images/terrain/tileSelected.png' and isMousePressed[0]: #
-                            characterDecisions[1] = relocateMove('friendly2', i + 1) #
+                    for i in range(0, 26):
+                        isHovered = checkHoverStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3])
+                        if isHovered == '/images/terrain/tileSelected.png' and isMousePressed[0]:
+                            characterDecisions[1] = relocateMove('friendly2', i + 1)
                             i = 26
             else:
                 mousePosition, isMousePressed = mouseActivity() #choosing a place to do actions
-                for i in range(0, 26): #
-                    isHovered = checkTileStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3]) #
-                    if isHovered == '/images/terrain/tileSelected.png' and isMousePressed[0]: #
-                        characterDecisions[2] = relocateMove('friendly3', i + 1) #
+                for i in range(0, 26):
+                    isHovered = checkHoverStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3])
+                    if isHovered == '/images/terrain/tileSelected.png' and isMousePressed[0]:
+                        characterDecisions[2] = relocateMove('friendly3', i + 1)
                         i = 26
+
             #make a boolean for if move(for now), which is True when the button is clicked(press anim?). Then If if it's true and player clicks on a tile attempt to move to that tile
             characterDecisions[0], characterDecisions[1], characterDecisions[2] = isActionDecided('friendly')
             cntLoopNum += 1

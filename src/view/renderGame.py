@@ -83,7 +83,7 @@ def renderBars(screen, currentDirectory):
     screen.blit(enemy3StaminaBarSprite, (1620, 1036))
 
 # if mouse inside boundaries, return img of a black tile
-def checkTileStatus(mousePosition, tileSprites, topLeftX, topLeftY, bottomRightX, bottomRightY):
+def checkHoverStatus(mousePosition, tileSprites, topLeftX, topLeftY, bottomRightX, bottomRightY):
     if (mousePosition[0] >= topLeftX and mousePosition[0] <= bottomRightX and mousePosition[1] >= topLeftY and mousePosition[1] <= bottomRightY):
         return tileSprites[1]
     return tileSprites[0]
@@ -91,21 +91,21 @@ def checkTileStatus(mousePosition, tileSprites, topLeftX, topLeftY, bottomRightX
 def renderTiles(screen, currentDirectory):
     mousePosition = pygame.mouse.get_pos()
     for i in range(0, 26):
-        tile = pygame.image.load(currentDirectory + checkTileStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3]))
+        tile = pygame.image.load(currentDirectory + checkHoverStatus(mousePosition, tileSprites, tileHoverPositions[i][0], tileHoverPositions[i][1], tileHoverPositions[i][2], tileHoverPositions[i][3]))
         screen.blit(tile, (tilePositions[i][0], tilePositions[i][1]))
 
 def renderPortaits(screen, currentDirectory):
     mousePosition = pygame.mouse.get_pos()
     # if tile character is on is higlighted, portrait frame becomes black
     for i in range(1, 4):
-        if (checkTileStatus(mousePosition, tileSprites, tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][0], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][1], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][2], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][3]) == tileSprites[1]):
+        if (checkHoverStatus(mousePosition, tileSprites, tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][0], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][1], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][2], tileHoverPositions[statsCharacter['friendly' + str(i)]['currentTile'] - 1][3]) == tileSprites[1]):
             friendlyPortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait2.png')
             screen.blit(friendlyPortraitSprite, (portraitPositions[i - 1][0], portraitPositions[i - 1][1]))
         else:
             friendlyPortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/friendlyPortrait/portrait1.png')
             screen.blit(friendlyPortraitSprite, (portraitPositions[i - 1][0], portraitPositions[i - 1][1]))
     for i in range(1, 4):
-        if (checkTileStatus(mousePosition, tileSprites, tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][0], tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][1], tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][2], tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][3]) == tileSprites[1]):
+        if (checkHoverStatus(mousePosition, tileSprites, tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][0], tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][1], tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][2], tileHoverPositions[statsCharacter['enemy' + str(i)]['currentTile'] - 1][3]) == tileSprites[1]):
             enemyPortraitSprite = pygame.image.load(currentDirectory + '/images/menu/blueMenu/enemyPortrait/portrait2.png')
             screen.blit(enemyPortraitSprite, (portraitPositions[i + 2][0], portraitPositions[i + 2][1]))
         else:
