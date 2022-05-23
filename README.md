@@ -125,3 +125,11 @@ Rise of Strife is a game where you play as the main villain. Your goal is to irr
   -  Resistance
 
   Magic defense
+
+## Unit tests
+to run the unit tests in a command prompt in the source directory, do this
+
+```
+set PYTHONPATH=C:\Users\josec\Documents\GitHub\RiseofStrife\src
+python model/modelTest.py
+```
