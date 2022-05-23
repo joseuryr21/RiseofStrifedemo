@@ -269,5 +269,8 @@ def isActionDecided(side):
             actions[i - 1] = False
     return actions
 
+def changeMenu(menu):
+    menuLocation = menu
+
 def currentMenu():
     return menuLocation

@@ -16,7 +16,7 @@ subMenuButtons = {
 }
 
 
-from model.gamedata import statsCharacter, currentMenu
+from model.gamedata import statsCharacter, changeMenu, currentMenu
 
 def getDirectory():
     currentDirectory = str(os.getcwd())
